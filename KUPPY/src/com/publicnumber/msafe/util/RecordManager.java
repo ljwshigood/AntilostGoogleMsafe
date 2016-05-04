@@ -66,11 +66,11 @@ public class RecordManager {
 		list = new ArrayList<String>();
 		list.clear();
 
-		sdcardExit = Environment.getExternalStorageState().equals(
-				android.os.Environment.MEDIA_MOUNTED);
+		sdcardExit = Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
 		if (sdcardExit) {
 			String pathStr = mContext.getCacheDir().getAbsolutePath() + "/YYT";
-			myRecAudioDir = new File(pathStr);
+			//myRecAudioDir = new File(pathStr);
+			myRecAudioDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), "BKYY");
 			if (!myRecAudioDir.exists()) {
 				myRecAudioDir.mkdirs();
 			}

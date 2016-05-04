@@ -9,6 +9,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -102,7 +103,7 @@ public class RecordMenuActivity extends BaseActivity implements
 	}
 
 	private void initData() {
-		String scanFilePath = mContext.getCacheDir().getAbsolutePath() + "/YYT";
+		String scanFilePath = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), "BKYY").getAbsolutePath();
 		mMusicList = FileUtil.getRecordFiles(scanFilePath);
 		mMenuAdapter = new RecordMenuAdapter(mContext, mMusicList, this,this);
 		mLvRecordPlay.setAdapter(mMenuAdapter);

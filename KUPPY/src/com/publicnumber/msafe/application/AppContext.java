@@ -7,6 +7,7 @@ import java.util.HashMap;
 import android.app.Application;
 import android.bluetooth.BluetoothGatt;
 
+import com.baidu.batsdk.BatSDK;
 import com.loopj.android.http.AsyncHttpClient;
 import com.publicnumber.msafe.R;
 import com.publicnumber.msafe.bean.DeviceSetInfo;
@@ -59,6 +60,10 @@ public class AppContext extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		
+		BatSDK.init(this, "55a8915f22ae73e1");
+		BatSDK.setCollectScreenshot(true);
+		BatSDK.setSendPrivacyInformation(true) ;
 		
 		/*CrashHandler crashHandler = CrashHandler.getInstance();
 		crashHandler.init(getApplicationContext());
